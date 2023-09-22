@@ -11,18 +11,41 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+         
+            
         }
-        .padding()
+        .preferredColorScheme(.dark)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct Rotating: View {
+    var body: some View {
+        
+        ZStack {
+            
+            Circle()
+                .fill(.white.opacity(0.25))
+                .frame(width: 350, height: 350)
+            
+            Circle()
+                .fill(.white.opacity(0.25))
+                .frame(width: 350, height: 350)
+            
+            Circle()
+                .fill(.white.opacity(0.25))
+                .frame(width: 350, height: 350)
+            
+            Circle()
+                .fill(.white.opacity(0.25))
+                .frame(width: 350, height: 350)
+        }
     }
 }
