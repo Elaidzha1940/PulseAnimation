@@ -34,17 +34,17 @@ struct Rotating: View {
         ZStack {
             
             Circle()
-                .fill(.white.opacity(0.25))
+                .fill(.white.opacity(0.20))
                 .frame(width: 350, height: 350)
                 .scaleEffect(self.animate ? 1 : 0)
             
             Circle()
-                .fill(.white.opacity(0.35))
+                .fill(.white.opacity(0.30))
                 .frame(width: 250, height: 250)
                 .scaleEffect(self.animate ? 1 : 0)
             
             Circle()
-                .fill(.white.opacity(0.45))
+                .fill(.white.opacity(0.40))
                 .frame(width: 150, height: 150)
                 .scaleEffect(self.animate ? 1 : 0)
             
@@ -55,6 +55,6 @@ struct Rotating: View {
         .onAppear {
             self.animate.toggle()
         }
-        .animation(Animation.linear(duration: 1.5).repeatForever(autoreverses: true))
+        .animation(Animation.linear(duration: 1.5).repeatForever(autoreverses: false))
     }
 }
