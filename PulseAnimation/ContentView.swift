@@ -14,7 +14,7 @@ struct ContentView: View {
         
         VStack {
          
-            
+            Rotating()
         }
         .preferredColorScheme(.dark)
     }
@@ -27,6 +27,8 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Rotating: View {
+    @State var animate = false
+    
     var body: some View {
         
         ZStack {
@@ -34,18 +36,25 @@ struct Rotating: View {
             Circle()
                 .fill(.white.opacity(0.25))
                 .frame(width: 350, height: 350)
+                .scaleEffect(self.animate ? 1 : 0)
             
             Circle()
-                .fill(.white.opacity(0.25))
-                .frame(width: 350, height: 350)
+                .fill(.white.opacity(0.35))
+                .frame(width: 250, height: 250)
+                .scaleEffect(self.animate ? 1 : 0)
             
             Circle()
-                .fill(.white.opacity(0.25))
-                .frame(width: 350, height: 350)
+                .fill(.white.opacity(0.45))
+                .frame(width: 150, height: 150)
+                .scaleEffect(self.animate ? 1 : 0)
             
             Circle()
-                .fill(.white.opacity(0.25))
-                .frame(width: 350, height: 350)
+                .fill(.white)
+                .frame(width: 50, height: 50)
         }
+        .onAppear {
+            self.animate.toggle()
+        }
+        .animation(Animation.linear(duration: 1.5).repeatForever(autoreverses: true))
     }
 }
